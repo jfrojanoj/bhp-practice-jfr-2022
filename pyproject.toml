@@ -16,6 +16,7 @@ flake8-breakpoint = "1.1.0"
 flake8-bugbear = "22.7.1"
 flake8-comprehensions = "3.10.0"
 mypy = "^0.961"
+Sphinx = "5.0.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

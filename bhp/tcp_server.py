@@ -1,4 +1,4 @@
-"""Script taken from Black Hat Python book."""
+"""Taken from the book Black Hat Python."""
 
 import socket
 import threading
@@ -8,10 +8,10 @@ PORT = 9998
 
 
 def main():
-    """Run main function."""
+    """Run main function IPv4 TCP."""
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind((IP, PORT))
-    server.listen(5)
+    server.bind((IP, PORT))  # ip and port to listen to
+    server.listen(5)  # maximum backlog conecctions
     print(f"[*] Listening on {IP}:{PORT}")
 
     while True:
