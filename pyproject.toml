@@ -18,6 +18,33 @@ flake8-comprehensions = "3.10.0"
 mypy = "^0.961"
 Sphinx = "5.0.2"
 
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+exclude = [
+    '^file1\.py$',  # TOML literal string (single-quotes, no escaping necessary)
+    "^file2\\.py$",  # TOML basic string (double-quotes, backslash and other characters need escaping)
+]
+
+# mypy per-module options:
+
+[[tool.mypy.overrides]]
+module = "mycode.foo.*"
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = "mycode.bar"
+warn_return_any = false
+
+[[tool.mypy.overrides]]
+module = [
+    "somelibrary",
+    "some_other_library"
+]
+ignore_missing_imports = true
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
